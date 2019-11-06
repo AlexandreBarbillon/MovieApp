@@ -4,13 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainList">
 
+<<<<<<< list_of_movies:app/src/main/res/layout/activity_main.xml
     <fragment
         android:id="@+id/fragment"
         android:name="barbillon.movieapp.MovieList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+=======
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainList"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        tools:listitem="@layout/fragment_movie_list_item"
+>>>>>>> Renaming the Main View to MainList:app/src/main/res/layout/main_list.xml
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
