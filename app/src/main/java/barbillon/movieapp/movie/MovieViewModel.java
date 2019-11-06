@@ -1,35 +1,28 @@
 package barbillon.movieapp.movie;
 
-import androidx.annotation.NonNull;
-
 public class MovieViewModel {
+    private final String IMG_LINK = "image.tmdb.org/t/p/w500";
+
     private String title;
     private String release_date;
+    private String poster_path;
 
-    public MovieViewModel(String title, String release_date, String director, String description){
+    public MovieViewModel(String title, String release_date, String poster_path) {
         this.title = title;
         this.release_date = release_date;
+        this.poster_path = poster_path;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getRelease_date() {
         return release_date;
     }
 
-    public void setRelease_date(String release_date) {
-        this.release_date = release_date;
+    public String getPoster_path() {
+        return IMG_LINK+ poster_path;
     }
 
-    @NonNull
-    @Override
-    public String toString() {
-        return this.title;
-    }
 }
