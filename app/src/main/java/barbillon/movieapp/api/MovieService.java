@@ -1,27 +1,17 @@
 package barbillon.movieapp.api;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-
-import java.util.List;
-
-import barbillon.movieapp.api.config.ApiConfig;
-import barbillon.movieapp.movie.MovieResponse;
-import barbillon.movieapp.movie.MovieViewModel;
-import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
+import barbillon.movieapp.api.model.MovieResponse;
+import io.reactivex.Single;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface MovieService {
 
     @GET("discover/movie")
-    Call<MovieResponse> getTrendingMovies(@Query("api_key") String api);
+    Single<MovieResponse> getTrendingMovies(@Query("api_key") String api_key);
 
+    @GET("movie/now_playing")
+    Single<MovieResponse> getMovieOnTheater(@Query("api_key") String api_key, @Query("Language") String language);
 
 /*
     public String constructRequest(){

@@ -1,6 +1,5 @@
 package barbillon.movieapp.api.config;
 
-import barbillon.movieapp.api.ApiKey;
 import barbillon.movieapp.api.config.enums.Languages;
 
 public class ApiConfig {
