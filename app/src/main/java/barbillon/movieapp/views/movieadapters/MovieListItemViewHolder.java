@@ -29,11 +29,11 @@ class MovieListItemViewHolder extends barbillon.movieapp.views.movieadapters.Mov
         ImageView image = this.itemView.findViewById(R.id.imageView);
         TextView title = itemView.findViewById(R.id.title);
         TextView year =  itemView.findViewById(R.id.year);
-        TextView description =  itemView.findViewById(R.id.description);
+        //TextView description =  itemView.findViewById(R.id.description);
         Log.d("poster",mvm.getPoster_path());
         Glide.with(this.mainActivity.getApplicationContext()).load(mvm.getPoster_path()).into(image);
         title.setText(mvm.getTitle());
         year.setText(mvm.getRelease_date());
-        description.setText(mvm.getOverview());
+        //description.setText(mvm.getOverview());
     }
 }
