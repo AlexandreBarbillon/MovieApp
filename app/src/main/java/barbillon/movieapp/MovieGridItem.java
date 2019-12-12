@@ -14,12 +14,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MovieListFragment.OnFragmentInteractionListener} interface
+ * {@link MovieGridItem.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MovieListFragment#newInstance} factory method to
+ * Use the {@link MovieGridItem#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MovieListFragment extends Fragment {
+public class MovieGridItem extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,7 +31,7 @@ public class MovieListFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public MovieListFragment() {
+    public MovieGridItem() {
         // Required empty public constructor
     }
 
@@ -41,11 +41,11 @@ public class MovieListFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MovieListFragment.
+     * @return A new instance of fragment MovieGridItem.
      */
     // TODO: Rename and change types and number of parameters
-    public static MovieListFragment newInstance(String param1, String param2) {
-        MovieListFragment fragment = new MovieListFragment();
+    public static MovieGridItem newInstance(String param1, String param2) {
+        MovieGridItem fragment = new MovieGridItem();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,7 +66,7 @@ public class MovieListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_movie_list_item, container, false);
+        return inflater.inflate(R.layout.fragment_movie_grid_item, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

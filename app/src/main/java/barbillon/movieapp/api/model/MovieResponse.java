@@ -1,4 +1,4 @@
-package barbillon.movieapp.movie;
+package barbillon.movieapp.api.model;
 
 import androidx.annotation.NonNull;
 
