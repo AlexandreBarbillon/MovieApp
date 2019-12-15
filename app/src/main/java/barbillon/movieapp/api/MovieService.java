@@ -11,7 +11,7 @@ public interface MovieService {
     Single<MovieResponse> getTrendingMovies(@Query("api_key") String api_key);
 
     @GET("movie/now_playing")
-    Single<MovieResponse> getMovieOnTheater(@Query("api_key") String api_key, @Query("Language") String language);
+    Single<MovieResponse> getMovieOnTheater(@Query("api_key") String api_key, @Query("language") String language);
 
 /*
     public String constructRequest(){
