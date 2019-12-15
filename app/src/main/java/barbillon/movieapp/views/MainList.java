@@ -58,11 +58,11 @@ public class MainList extends AppCompatActivity implements ViewContract {
     public void displayMovies(){
         if(type.equals("LIST")){
             movieList.setLayoutManager(this.layoutManager);
-            movieList.setAdapter(new MovieListItemAdapter(this,this.movieViewModelList));
+            movieList.setAdapter(new MovieListItemAdapter(this,this.movieViewModelList,movieList));
         }
         else{
             movieList.setLayoutManager((new GridLayoutManager(this, 2)));
-            movieList.setAdapter(new MovieGridItemAdapter(this, this.movieViewModelList));
+            movieList.setAdapter(new MovieGridItemAdapter(this, this.movieViewModelList,movieList));
         }
     }
 

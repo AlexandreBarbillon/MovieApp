@@ -1,28 +1,33 @@
 package barbillon.movieapp.views.movieadapters;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import barbillon.movieapp.DetailView;
 import barbillon.movieapp.R;
 import barbillon.movieapp.api.model.MovieViewModel;
 
 public class MovieGridItemAdapter extends MovieAdapter {
 
-    public MovieGridItemAdapter(Activity mainActivity, List<MovieViewModel> movies) {
-        super(mainActivity, movies);
+    public MovieGridItemAdapter(Activity mainActivity, List<MovieViewModel> movies, RecyclerView recyclerView) {
+        super(mainActivity, movies, recyclerView);
     }
 
     @NonNull
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mlf = LayoutInflater.from(mainActivity.getApplicationContext()).inflate(R.layout.fragment_movie_grid_item,parent,false);
-        MovieViewHolder mvh = new MovieGridItemViewHolder(mlf,this.mainActivity);
+        View view = LayoutInflater.from(mainActivity.getApplicationContext()).inflate(R.layout.fragment_movie_grid_item,parent,false);
+        generateOnClickOnView(view);
+        MovieViewHolder mvh = new MovieGridItemViewHolder(view,this.mainActivity);
         return mvh;
     }
 
