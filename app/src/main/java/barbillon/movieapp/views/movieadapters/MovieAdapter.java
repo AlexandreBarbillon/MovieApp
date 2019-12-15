@@ -12,10 +12,11 @@ public abstract class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder>
 
     Activity mainActivity;
     List<MovieViewModel> movies;
-
-    public MovieAdapter(Activity mainActivity, List<MovieViewModel> movies){
+    RecyclerView recyclerView;
+    public MovieAdapter(Activity mainActivity, List<MovieViewModel> movies, RecyclerView recyclerView){
         this.mainActivity = mainActivity;
         this.movies = movies;
+        this.recyclerView = recyclerView;
     }
 
     @Override
