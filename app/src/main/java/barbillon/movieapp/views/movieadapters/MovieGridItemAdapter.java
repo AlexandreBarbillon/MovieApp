@@ -26,21 +26,7 @@ public class MovieGridItemAdapter extends MovieAdapter {
     @Override
     public MovieViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mainActivity.getApplicationContext()).inflate(R.layout.fragment_movie_grid_item,parent,false);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int position = recyclerView.getChildLayoutPosition(view);
-                MovieViewModel movie = movies.get(position);
-                Intent intent = new Intent(recyclerView.getContext(), DetailView.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("title",movie.getTitle());
-                bundle.putString("poster",movie.getPoster_path());
-                bundle.putString("year",movie.getRelease_date());
-                bundle.putString("description",movie.getOverview());
-                intent.putExtras(bundle);
-                recyclerView.getContext().startActivity(intent);
-            }
-        });
+        generateOnClickOnView(view);
         MovieViewHolder mvh = new MovieGridItemViewHolder(view,this.mainActivity);
         return mvh;
     }
