@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +15,13 @@ import android.widget.ImageButton;
 import androidx.appcompat.widget.Toolbar;
 
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import barbillon.movieapp.R;
 import barbillon.movieapp.api.model.MovieViewModel;
+import barbillon.movieapp.db.MovieDatabase;
 import barbillon.movieapp.moviedisplay.MovieDataRepository;
 import barbillon.movieapp.moviedisplay.MoviePresenter;
 import barbillon.movieapp.moviedisplay.ViewContract;
@@ -24,6 +29,7 @@ import barbillon.movieapp.views.movieadapters.MovieGridItemAdapter;
 import barbillon.movieapp.views.movieadapters.MovieListItemAdapter;
 
 public class MainList extends AppCompatActivity implements ViewContract {
+    private final String DATE_CACHE = "date";
 
     private RecyclerView movieList;
     private RecyclerView.LayoutManager layoutManager;
@@ -34,7 +40,8 @@ public class MainList extends AppCompatActivity implements ViewContract {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        SharedPreferences settings = getSharedPreferences(DATE_CACHE, Context.MODE_PRIVATE);
+        int weekNumber = settings.getInt("week",-1);//date attendue : dd-MM-yyyy
         setContentView(R.layout.main_list);
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(Color.LTGRAY);
@@ -42,7 +49,7 @@ public class MainList extends AppCompatActivity implements ViewContract {
         movieList = findViewById(R.id.mainList);
         movieList.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        moviePresenter = new MoviePresenter(new MovieDataRepository());
+        moviePresenter = new MoviePresenter(new MovieDataRepository(MovieDatabase.getInstance(this.getApplication().getApplicationContext()), settings, weekNumber));
         moviePresenter.attachView(this);
         moviePresenter.displayMovies();
         setButton();

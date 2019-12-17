@@ -1,13 +1,18 @@
 package barbillon.movieapp.api.model;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.util.List;
 
+
+@Entity
 public class MovieResponse {
 
+    @NonNull
+    @PrimaryKey
     int pages;
-
     List<MovieViewModel> results;
 
     public MovieResponse(int pages, List<MovieViewModel> results) {

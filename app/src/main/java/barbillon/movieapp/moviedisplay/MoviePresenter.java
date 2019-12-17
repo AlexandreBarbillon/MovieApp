@@ -22,7 +22,6 @@ public class MoviePresenter implements MovieContract {
         this.compositeDisposable = new CompositeDisposable();
     }
 
-
     @Override
     public void displayMovies() {
         compositeDisposable.clear();
