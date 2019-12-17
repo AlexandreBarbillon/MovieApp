@@ -1,4 +1,4 @@
-package barbillon.movieapp;
+package barbillon.movieapp.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import barbillon.movieapp.R;
 import barbillon.movieapp.api.model.MovieViewModel;
 import barbillon.movieapp.views.movieadapters.MovieViewHolder;
 

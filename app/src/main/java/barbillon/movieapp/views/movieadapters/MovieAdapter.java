@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import barbillon.movieapp.DetailView;
+import barbillon.movieapp.views.DetailView;
 import barbillon.movieapp.api.model.MovieViewModel;
 
 public abstract class MovieAdapter extends RecyclerView.Adapter<MovieViewHolder> {
