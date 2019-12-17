@@ -12,6 +12,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * MoviePresenter permet de déclencher l'affichage des données une fois celles-ci récupérees. Une vue doit s'y être attaché.
+ */
 public class MoviePresenter implements MovieContract {
 
     private MovieRepository movieRepository;
@@ -22,7 +25,9 @@ public class MoviePresenter implements MovieContract {
         this.compositeDisposable = new CompositeDisposable();
     }
 
-
+    /**
+     * Cette fonction permet d'aller récupérer les données via un MovieRepository. Une fois les données récupérées, la fonction displayMovies d'une vue répondant à l'interface ViewContract sera appelée pour afficher le résultat
+     */
     @Override
     public void displayMovies() {
         compositeDisposable.clear();
@@ -32,7 +37,9 @@ public class MoviePresenter implements MovieContract {
                 .subscribeWith(new DisposableSingleObserver<MovieResponse>() {
                     @Override
                     public void onSuccess(MovieResponse movieResponse) {
-                        viewContract.displayMovies(movieResponse.getResults());
+                        if(movieResponse!=null){
+                            viewContract.displayMovies(movieResponse.getResults());
+                        }
                     }
 
                     @Override
@@ -42,6 +49,10 @@ public class MoviePresenter implements MovieContract {
                 }));
     }
 
+    /**
+     * Attache une vue afin qu'elle soit appelée lors de l'appel à displayMovies()
+     * @param view
+     */
     public void attachView(ViewContract view) {
         this.viewContract = view;
     }

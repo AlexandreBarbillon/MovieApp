@@ -13,6 +13,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Récupéré depuis le TP Book, cet objet permet de récupérer plusieurs outils utiles pour le projet.
+ */
 public class TempDependencyInjector {
 
     private static MovieService movieService;
@@ -20,13 +23,19 @@ public class TempDependencyInjector {
     private static Gson gson;
     private static Context applicationContext;
 
-    public static MovieService getBookDisplayService() {
+    /**
+     * @return un objet MovieService
+     */
+    public static MovieService getMovieDisplayService() {
         if (movieService == null) {
             movieService = getRetrofit().create(MovieService.class);
         }
         return movieService;
     }
 
+    /**
+     * @return Retrofit configuré sur l'API moviedb
+     */
     public static Retrofit getRetrofit() {
         if (retrofit == null) {
             HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -40,17 +49,10 @@ public class TempDependencyInjector {
                     .baseUrl(ApiConfig.BASE_URL)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(client)
-                    .addConverterFactory(GsonConverterFactory.create(getGson()))
+                    .addConverterFactory(GsonConverterFactory.create(new Gson()))
                     .build();
         }
         return retrofit;
-    }
-
-    public static Gson getGson() {
-        if (gson == null) {
-            gson = new Gson();
-        }
-        return gson;
     }
 
 }

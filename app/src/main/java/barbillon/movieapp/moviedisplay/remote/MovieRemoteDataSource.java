@@ -7,6 +7,9 @@ import barbillon.movieapp.api.config.enums.Languages;
 import barbillon.movieapp.api.model.MovieResponse;
 import io.reactivex.Single;
 
+/**
+ * Permet d'appeler les fonctions de MovieService
+ */
 public class MovieRemoteDataSource {
 
     private MovieService movieService;

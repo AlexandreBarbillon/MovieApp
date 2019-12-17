@@ -11,6 +11,9 @@ import com.bumptech.glide.Glide;
 import barbillon.movieapp.api.model.MovieViewModel;
 import barbillon.movieapp.views.movieadapters.MovieViewHolder;
 
+/**
+ * La vue détaillée des films, elle intégre l'affiche du film (donc pas besoin d'afficher le titre, il est généralement sur l'affiche), la date de sortie et la description
+ */
 public class DetailView extends AppCompatActivity {
 
     private Bundle bundle;
@@ -22,6 +25,9 @@ public class DetailView extends AppCompatActivity {
         fillView();
     }
 
+    /**
+     * Remplie la vue avec les données récoltées dans le bundle
+     */
     private void fillView(){
         ImageView poster = findViewById(R.id.detail_poster);
         //TextView title = findViewById(R.id.detailTitle);

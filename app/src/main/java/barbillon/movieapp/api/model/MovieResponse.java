@@ -4,6 +4,9 @@ import androidx.annotation.NonNull;
 
 import java.util.List;
 
+/**
+ * MovieResponse est l'objet qui reçoit la réponse de l'API
+ */
 public class MovieResponse {
 
     int pages;

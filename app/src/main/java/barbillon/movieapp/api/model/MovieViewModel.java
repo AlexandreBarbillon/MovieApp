@@ -1,6 +1,8 @@
 package barbillon.movieapp.api.model;
 
-
+/**
+ * MovieViewModel est l'objet qui reçoit les films de l'API, il stock le titre, la date de sortie, le chemin du fichier et la description
+ */
 public class MovieViewModel {
     private final String IMG_LINK = "http://image.tmdb.org/t/p/w500";
 
