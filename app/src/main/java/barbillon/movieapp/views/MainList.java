@@ -29,7 +29,7 @@ public class MainList extends AppCompatActivity implements ViewContract {
     private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter movieListAdapter;
     private MoviePresenter moviePresenter;
-    private String type = "LIST";
+    private boolean isListView = true;
     private List<MovieViewModel> movieViewModelList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,7 @@ public class MainList extends AppCompatActivity implements ViewContract {
     }
 
     public void displayMovies(){
-        if(type.equals("LIST")){
+        if(isListView){
             movieList.setLayoutManager(this.layoutManager);
             movieList.setAdapter(new MovieListItemAdapter(this,this.movieViewModelList,movieList));
         }
@@ -77,8 +77,7 @@ public class MainList extends AppCompatActivity implements ViewContract {
     }
 
     public void switch_view(){
-        if(type.equals("GRID")) type = "LIST";
-        else type = "GRID";
+        isListView = !isListView;
         displayMovies();
     }
 }
